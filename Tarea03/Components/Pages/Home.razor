@@ -1,0 +1,68 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using System.Text.Json
+@inject IJSRuntime JSx
+
+<PageTitle>Estadistica</PageTitle>
+
+<h1>Estadistica</h1>
+<hr>
+<hr>
+<h4>DashBoard</h4>
+
+
+<style>
+    .report-container {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+    
+    .report-item {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+    .casos { color: blue; }
+    .vehiculos { color: green; }
+    .muertos { color: red; }
+    .heridos { color: orange; }
+    .costos { color: purple; }
+</style>
+
+<div class="report-container">
+    <div class="report-item casos">
+        Cantidad de casos registrados: @reportes.Count
+    </div>
+    <div class="report-item vehiculos">
+        Total de vehículos: @reportes.Sum(r => r.VehiculosInvolucrados)
+    </div>
+    <div class="report-item muertos">
+        Total de muertos: @reportes.Sum(r => r.Muertos)
+    </div>
+    <div class="report-item heridos">
+        Total de heridos: @reportes.Sum(r => r.Heridos)
+    </div>
+    <div class="report-item costos">
+        Total de costos estimados: @reportes.Sum(r => r.CostoEstimado)
+    </div>
+</div>
+@code{
+    List<Reporte> reportes = new List<Reporte>();
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender){
+
+        if(firstRender){
+            
+            var reportesJson = await JSx.InvokeAsync<string>("localStorage.getItem","reportes") ;
+            
+            if(reportesJson != null){
+                reportes = JsonSerializer.Deserialize<List<Reporte>>(reportesJson);
+            }
+        }
+    }
+}

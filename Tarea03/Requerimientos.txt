@@ -1,0 +1,38 @@
+1️⃣ Registro de Accidentes:
+
+Crea una aplicación en Blazor WebAssembly que permita registrar los siguientes datos de un accidente de tránsito:
+Fecha del accidente.
+Descripción del accidente.
+Costo económico estimado.
+Número de muertos.
+Número de heridos.
+Cantidad de vehículos involucrados.
+
+2️⃣ Funcionalidades:
+
+La aplicación debe permitir agregar, editar y eliminar registros de accidentes.
+Los datos de los accidentes deben ser almacenados en el LocalStorage del navegador, de modo que persistan incluso si la página se recarga.
+
+3️⃣ Mini-dashboard en la Página Principal:
+
+Crea un mini-dashboard en la página principal de la aplicación que muestre lo siguiente:
+Total de accidentes registrados.
+Total de vehículos involucrados en los accidentes.
+Total de muertos.
+Total de heridos.
+
+4️⃣ Generación de Reporte:
+
+La aplicación debe permitir la impresión de un reporte de accidente. El reporte debe estar formateado para que ocupe una sola página.
+El reporte debe incluir todos los detalles del accidente seleccionado y presentarse de forma clara y profesional.
+
+📤 Entrega:
+
+Repositorio GitHub: Sube el proyecto completo a GitHub y proporciona el enlace. 🌐
+Documento PDF: Entrega un PDF con:
+Nombre completo. 👤
+Matrícula. 🆔
+URL del repositorio en GitHub. 🌐
+Capturas de pantalla de la aplicación mostrando el mini-dashboard, el componente reutilizable aplicado y un reporte de accidente impreso.
+
+Tiempo restante: 2 dias 
